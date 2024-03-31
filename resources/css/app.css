@@ -2,3 +2,16 @@
     margin: 0;
     padding: 0;
 }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
+}
+#app{
+    width: 1440px;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter.ttf');
+}

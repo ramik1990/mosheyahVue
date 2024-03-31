@@ -1,18 +1,17 @@
 <template>
-    <h1>New Mosheyah on VueJS</h1>
+    <main-nav></main-nav>
 </template>
 
 <script>
-export default {
+import MainNav from './mainApp/Navigation.vue'
 
+export default {
+    components: {
+        'main-nav': MainNav
+    }
 }
 </script>
 
 <style scoped>
-h1 {
-    color: red;
-    font-size: 30px;
-    font-weight: bolder;
-    text-align: center;
-}
+
 </style>
