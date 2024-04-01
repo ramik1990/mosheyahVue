@@ -7,7 +7,7 @@
             <li><a href="">о нас</a></li>
             <li><a href="">контакты</a></li>
             <li><a href="">отзывы</a></li>
-            <li><a href="">каталог</a></li>
+            <li><a href="">каталог</a></li> 
         </ul>
     </nav>
 </template>
@@ -53,5 +53,15 @@ ul li a {
 }
 ul li a:hover {
     color: #fff;
+}
+
+
+@media (max-width: 1024px) {         /* Планшет */
+    nav ul {
+        display: none;
+    }
+}
+@media (max-width: 768px) {         /* Мобилка */
+    
 }
 </style>

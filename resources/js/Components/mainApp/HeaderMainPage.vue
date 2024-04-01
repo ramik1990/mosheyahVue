@@ -85,4 +85,16 @@ header .header-content .header-social-buttons img:hover {
     color: #ffffff;
     text-transform: uppercase;
 }
+
+
+@media (max-width: 1024px) {         /* Планшет */
+    /* стили для планшетов */
+}
+
+@media (max-width: 768px) {         /* Мобилка */
+    header .header-content {
+        width: 100%;
+        background: #ffffff4f;
+    }
+}
 </style>
