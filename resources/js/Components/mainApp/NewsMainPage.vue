@@ -2,15 +2,21 @@
     <section class="news-main-page">
         <h2>новости</h2>
         <div class="news-block">
-            <div class="news-block-item">1</div>
-            <div class="news-block-item">2</div>
-            <div class="news-block-item">3</div>
+            <news-block-item></news-block-item>
+            <news-block-item></news-block-item>
+            <news-block-item></news-block-item>
         </div>
+        <a href="#" class="all-news-button">все новости</a>
     </section>
 </template>
 
 <script>
+import NewsBlockItem from './NewsBlockItem.vue'
+
 export default {
+    components: {
+        'news-block-item': NewsBlockItem
+    },
     name: "NewsMainPage"
 }
 </script>
@@ -52,11 +58,25 @@ export default {
     grid-template-columns: repeat(auto-fill, minmax(433px, 1fr));
     gap: 20px;
     justify-content: center;
+    justify-items: center;
 }
 .news-block-item {
     background-color: lightyellow;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.all-news-button {
+    font-family: Inter;
+    margin: 20px auto 5px;
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #EE6A59;
+    color: #fff;
 }
 </style>
