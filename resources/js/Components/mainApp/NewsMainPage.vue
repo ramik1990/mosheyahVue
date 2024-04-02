@@ -27,6 +27,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #fff;
 }
 .news-main-page h2 {
     position: relative;
