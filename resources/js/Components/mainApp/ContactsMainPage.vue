@@ -139,7 +139,4 @@ export default {
     width: 45px;
     height: 45px;
 }
-.contacts-body-col2 {
-    
-}
 </style>
