@@ -168,4 +168,7 @@ export default {
     text-transform: uppercase;
     text-decoration: none;
 }
+.about-footer-button:hover {
+    transform: scale(1.01);
+}
 </style>

@@ -7,6 +7,7 @@
         <contacts-main-page></contacts-main-page>
         <reviews-main-page></reviews-main-page>
     </main>
+    <foot></foot>
 </template>
 
 <script>
@@ -16,6 +17,7 @@ import NewsMainPage from './mainApp/NewsMainPage.vue'
 import AboutMainPage from './mainApp/AboutMainPage.vue'
 import ContactsMainPage from './mainApp/ContactsMainPage.vue'
 import ReviewsMainPage from './mainApp/ReviewsMainPage.vue'
+import Footer from './mainApp/Footer.vue'
 
 export default {
     components: {
@@ -24,7 +26,8 @@ export default {
         'news-main-page': NewsMainPage,
         'about-main-page': AboutMainPage,
         'contacts-main-page': ContactsMainPage,
-        'reviews-main-page': ReviewsMainPage
+        'reviews-main-page': ReviewsMainPage,
+        'foot':Footer
     }
 }
 </script>

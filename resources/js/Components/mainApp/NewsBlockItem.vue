@@ -80,6 +80,13 @@ export default {
         line-height: normal;
         text-transform: uppercase;
     }
+    .news-item-button:hover {
+        color: #ee6a59;
+        background-color: #fff;
+        transition: background .20s linear;
+        border: 1px solid #ee6a59;
+        padding: 5px 20px 6px 20px;
+    }
     .news-item-date {
         width: 90px;
         color: #3a3f58;

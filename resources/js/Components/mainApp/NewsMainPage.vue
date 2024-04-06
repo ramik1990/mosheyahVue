@@ -80,4 +80,12 @@ export default {
     background: #EE6A59;
     color: #fff;
 }
+.all-news-button:hover {
+    color: #ee6a59;
+    background-color: #fff;
+    transition: background .20s linear;
+    border: 1px solid #ee6a59;
+    width: 148px;
+    height: 28px;
+}
 </style>

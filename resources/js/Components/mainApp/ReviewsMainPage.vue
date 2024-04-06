@@ -74,6 +74,11 @@ export default {
     color: #fff;
 }
 .add-review-button:hover {
-    transform: scale(1.02);
+    color: #ee6a59;
+    background-color: #fff;
+    transition: background .20s linear;
+    border: 1px solid #ee6a59;
+    width: 198px;
+    height: 28px;
 }
 </style>
