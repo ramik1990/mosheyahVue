@@ -1,6 +1,6 @@
 <template>
     <header>
-        <div class="header-content">
+        <div class="header-content" id="header">
             <div class="header-social-buttons">
                 <a href="#"><img src="../../../images/logos/facebook.png" alt="facebook"></a>
                 <a href="#"><img src="../../../images/logos/instagram.png" alt="instagram"></a>
@@ -10,7 +10,7 @@
                 ЗА БЕЗОПАСНОСТЬ НЕОБХОДИМО ПЛАТИТЬ, А ЗА ЕЕ ОТСУТСТВИЕ - РАСПЛАЧИВАТЬСЯ
             </div>
             <div class="header-call-button">
-                <a href="#" class="call-button">
+                <a href="#" class="call-button" @click="openWindow">
                     <img src="../../../images/logos/phone.png" alt="call-button">
                     <p>заказать звонок</p>
                 </a>
@@ -21,7 +21,13 @@
 
 <script>
 export default {
-    name: "HeaderMainPage"
+    name: "HeaderMainPage",
+    props: ['openCallWindow'],
+    methods: {
+        openWindow() {
+            this.openCallWindow(true);
+        }
+    }
 }
 </script>
 

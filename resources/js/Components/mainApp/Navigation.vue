@@ -1,12 +1,12 @@
 <template>
     <nav>
-        <img src="../../../images/logos/main-logo.png" alt="logo">
+        <img src="../../../images/logos/main-logo.png" alt="logo" id="logo">
         <ul>
-            <li><a href="">главная</a></li>
-            <li><a href="">новости</a></li>
-            <li><a href="">о нас</a></li>
-            <li><a href="">контакты</a></li>
-            <li><a href="">отзывы</a></li>
+            <li><a href="#header">главная</a></li>
+            <li><a href="#news">новости</a></li>
+            <li><a href="#about">о нас</a></li>
+            <li><a href="#contacts">контакты</a></li>
+            <li><a href="#reviews">отзывы</a></li>
             <li><a href="">каталог</a></li> 
         </ul>
     </nav>
@@ -22,7 +22,9 @@ export default {
 nav {
     background-color: #fff;
     height: 70px;
-    display: flex;
+    display: flex;    
+    width: 100%;
+    max-width: 1440px;
 }
 ul {
     width: 100%;
@@ -62,6 +64,8 @@ ul li a:hover {
     }
 }
 @media (max-width: 768px) {         /* Мобилка */
-    
+    nav {
+        justify-content: center;
+    }
 }
 </style>

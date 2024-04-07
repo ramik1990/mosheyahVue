@@ -1,5 +1,5 @@
-<template>
-    <section class="contacts">
+<template> 
+    <section class="contacts" id="contacts">
         <h2 class="contacts-title">контакты</h2>
         <div class="contacts-body">
             <div class="contacts-body-col1">
@@ -18,7 +18,7 @@
                 <span>
                     Телефоны: +7 777 5220201, +7 717 2251199
                 </span>
-                <a href="#" class="contacts-button"><img src="../../../images/logos/phone.png" alt="call-button">Заказать звонок</a>
+                <a href="#" @click="openWindow" class="contacts-button"><img src="../../../images/logos/phone.png" alt="call-button">Заказать звонок</a>
                 <a href="#" class="contacts-button"><img src="../../../images/logos/catalog.png" alt="our-catalog">Наш каталог</a>
             </div>
             <div class="contacts-body-col2">
@@ -30,7 +30,13 @@
 
 <script>
 export default {
-    name: "ContactsMainPage"
+    name: "ContactsMainPage",
+    props: ['openCallWindow'],
+    methods: {
+        openWindow(){
+            this.openCallWindow(true);
+        }
+    }
 }
 </script>
 

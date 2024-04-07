@@ -1,11 +1,12 @@
 <template>
     <main-nav></main-nav>
-    <header-main-page></header-main-page>
+    <header-main-page :openCallWindow="showCallWindow"></header-main-page>
     <main>
         <news-main-page></news-main-page>
         <about-main-page></about-main-page>
-        <contacts-main-page></contacts-main-page>
+        <contacts-main-page :openCallWindow="showCallWindow"></contacts-main-page>
         <reviews-main-page></reviews-main-page>
+        <call-window v-if="callWindow" :openCallWindow="showCallWindow"></call-window>
     </main>
     <foot></foot>
 </template>
@@ -18,6 +19,7 @@ import AboutMainPage from './mainApp/AboutMainPage.vue'
 import ContactsMainPage from './mainApp/ContactsMainPage.vue'
 import ReviewsMainPage from './mainApp/ReviewsMainPage.vue'
 import Footer from './mainApp/Footer.vue'
+import CallWindow from './mainApp/CallWindow.vue'
 
 export default {
     components: {
@@ -27,7 +29,18 @@ export default {
         'about-main-page': AboutMainPage,
         'contacts-main-page': ContactsMainPage,
         'reviews-main-page': ReviewsMainPage,
-        'foot':Footer
+        'foot':Footer,
+        'call-window': CallWindow
+    },
+    data() {
+        return {
+            callWindow: false
+        }
+    },
+    methods: {
+        showCallWindow(value) {
+            this.callWindow = value;
+        }
     }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <section class="reviews">
+    <section class="reviews" id="reviews">
         <h2 class="reviews-title">отзывы</h2>
         <div class="reviews-body">
             <reviews-block-item></reviews-block-item>
