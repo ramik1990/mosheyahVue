@@ -30,6 +30,7 @@ export default {
     border: 1px solid rgba(0, 0, 0, .01);
     box-shadow: 0 2px 4px #ee6a59cc;
     display: flex;
+    animation: openWindow .3s ease-in-out;
 }
 .close-button {
     width: 100%;
@@ -45,5 +46,14 @@ export default {
     transform: scale(1.02);
     background-color: rgba(0, 0, 0, 0.068);
     border-radius: 50%;
+}
+
+@keyframes openWindow {
+    0% {
+        top: -200px;
+    }
+    100% {
+        top: 50%;
+    }
 }
 </style>

@@ -18,7 +18,7 @@
                 <span>
                     Телефоны: +7 777 5220201, +7 717 2251199
                 </span>
-                <a href="#" @click="openWindow" class="contacts-button"><img src="../../../images/logos/phone.png" alt="call-button">Заказать звонок</a>
+                <a href="#" @click.prevent="openWindow" class="contacts-button"><img src="../../../images/logos/phone.png" alt="call-button">Заказать звонок</a>
                 <a href="#" class="contacts-button"><img src="../../../images/logos/catalog.png" alt="our-catalog">Наш каталог</a>
             </div>
             <div class="contacts-body-col2">

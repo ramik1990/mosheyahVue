@@ -10,7 +10,7 @@
                 ЗА БЕЗОПАСНОСТЬ НЕОБХОДИМО ПЛАТИТЬ, А ЗА ЕЕ ОТСУТСТВИЕ - РАСПЛАЧИВАТЬСЯ
             </div>
             <div class="header-call-button">
-                <a href="#" class="call-button" @click="openWindow">
+                <a href="" class="call-button" @click.prevent="openWindow">
                     <img src="../../../images/logos/phone.png" alt="call-button">
                     <p>заказать звонок</p>
                 </a>
