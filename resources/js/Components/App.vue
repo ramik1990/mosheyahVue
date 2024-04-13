@@ -7,6 +7,7 @@
         <contacts-main-page :openCallWindow="showCallWindow"></contacts-main-page>
         <reviews-main-page></reviews-main-page>
         <call-window v-if="callWindow" :openCallWindow="showCallWindow"></call-window>
+        <all-news-window v-if="allNewsWindow"></all-news-window>
     </main>
     <foot></foot>
 </template>
@@ -20,6 +21,7 @@ import ContactsMainPage from './mainApp/ContactsMainPage.vue'
 import ReviewsMainPage from './mainApp/ReviewsMainPage.vue'
 import Footer from './mainApp/Footer.vue'
 import CallWindow from './mainApp/CallWindow.vue'
+import AllNewsWindow from './mainApp/AllNewsWindow.vue'
 
 export default {
     components: {
@@ -30,11 +32,13 @@ export default {
         'contacts-main-page': ContactsMainPage,
         'reviews-main-page': ReviewsMainPage,
         'foot':Footer,
-        'call-window': CallWindow
+        'call-window': CallWindow,
+        'all-news-window': AllNewsWindow
     },
     data() {
         return {
-            callWindow: false
+            callWindow: false,  // окно обратной связи
+            allNewsWindow: true    //окно всех новостей
         }
     },
     methods: {
