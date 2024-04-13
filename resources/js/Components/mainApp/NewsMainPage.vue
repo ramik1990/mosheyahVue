@@ -6,7 +6,7 @@
             <news-block-item></news-block-item>
             <news-block-item></news-block-item>
         </div>
-        <a href="#" class="all-news-button">все новости</a>
+        <a href="#" class="all-news-button" @click.prevent="openAllNewsWindow()">все новости</a>
     </section>
 </template>
 
@@ -14,10 +14,16 @@
 import NewsBlockItem from './NewsBlockItem.vue'
 
 export default {
+    props: ['openAllNewsWindow'],
     components: {
-        'news-block-item': NewsBlockItem
+        'news-block-item': NewsBlockItem,
     },
-    name: "NewsMainPage"
+    name: "NewsMainPage",
+    methods: {
+        openAllNewsWindow(){
+            this.openAllNewsWindow(true);
+        }
+    }
 }
 </script>
 

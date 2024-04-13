@@ -2,12 +2,12 @@
     <main-nav></main-nav>
     <header-main-page :openCallWindow="showCallWindow"></header-main-page>
     <main>
-        <news-main-page></news-main-page>
+        <news-main-page :openAllNewsWindow="showAllNewsWindow"></news-main-page>
         <about-main-page></about-main-page>
         <contacts-main-page :openCallWindow="showCallWindow"></contacts-main-page>
         <reviews-main-page></reviews-main-page>
         <call-window v-if="callWindow" :openCallWindow="showCallWindow"></call-window>
-        <all-news-window v-if="allNewsWindow"></all-news-window>
+        <all-news-window v-if="allNewsWindow" :openAllNewsWindow="showAllNewsWindow"></all-news-window>
     </main>
     <foot></foot>
 </template>
@@ -42,8 +42,11 @@ export default {
         }
     },
     methods: {
-        showCallWindow(value) {
-            this.callWindow = value;
+        showCallWindow(value) {   // Показать/Скрыть окно обратной связи
+            this.callWindow = value;       
+        },
+        showAllNewsWindow(value) {       // Показать/Скрыть окно со всеми новостями
+            this.allNewsWindow = value;
         }
     }
 }

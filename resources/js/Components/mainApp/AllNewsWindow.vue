@@ -7,7 +7,13 @@
 
 <script>
 export default {
-    name: "AllNewsWindow"
+    name: "AllNewsWindow",
+    props: ['openAllNewsWindow'],
+    methods: {
+        closeWindow(){
+            this.openAllNewsWindow(false)
+        }
+    }
 }
 </script>
 
@@ -26,6 +32,7 @@ export default {
     justify-content: start;
     align-items: center;
     flex-direction: column;
+    animation: openAllNewsAnimation 1s ease;
 }
 .all-news-window-title {
     position: relative;
@@ -59,5 +66,14 @@ export default {
 }
 .close-button span:hover {
     transform: scale(1.045);
+}
+
+@keyframes openAllNewsAnimation {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 0;
+    }
 }
 </style>
