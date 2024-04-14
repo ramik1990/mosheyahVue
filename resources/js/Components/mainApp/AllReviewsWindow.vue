@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
 .all-reviews-window {
-    max-width: 1440px;
+    max-width: 1400px;
     min-width: 567px;
     width: calc(100% - 40px);
     min-height: 100%;
@@ -33,6 +33,8 @@ export default {
     align-items: center;
     flex-direction: column;
     animation: openAllReviewsAnimation .5s ease;
+    border: 1px solid #ee6a59;
+    box-shadow: 0 2px 4px #ee6a59cc;
 }
 .all-reviews-window-title {
     position: relative;

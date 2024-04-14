@@ -20,7 +20,7 @@ export default {
 
 <style scoped>
 .one-news-window {
-    max-width: 1440px;
+    max-width: 1400px;
     min-width: 567px;
     width: calc(100% - 40px);
     min-height: 100%;
@@ -35,6 +35,8 @@ export default {
     flex-direction: column;
     animation: openOneNewsAnimation .5s ease;
     z-index: 999;
+    border: 1px solid #ee6a59;
+    box-shadow: 0 2px 4px #ee6a59cc;
 }
 .one-news-window-title {
     position: relative;
