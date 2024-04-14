@@ -7,14 +7,20 @@
         </div>
         <div class="news-item-footer">
             <span class="news-item-date">22.01.2024</span>
-            <a href="#" class="news-item-button">читать</a>
+            <a href="#" class="news-item-button" @click.prevent="openOneNewsWindow">читать</a>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "NewsBlockItem"
+    name: "NewsBlockItem",
+    props: ['openOneNewsWindow'],
+    methods: {
+        openOneNewsWindow() {
+            this.openOneNewsWindow(true)
+        }
+    }
 }
 </script>
 

@@ -2,26 +2,38 @@
     <section class="news-main-page" id="news">
         <h2>новости</h2>
         <div class="news-block">
-            <news-block-item></news-block-item>
-            <news-block-item></news-block-item>
-            <news-block-item></news-block-item>
+            <news-block-item :openOneNewsWindow="showOneNewsWindow"></news-block-item>
+            <news-block-item :openOneNewsWindow="showOneNewsWindow"></news-block-item>
+            <news-block-item :openOneNewsWindow="showOneNewsWindow"></news-block-item>
         </div>
         <a href="#" class="all-news-button" @click.prevent="openAllNewsWindow()">все новости</a>
+
+        <one-news-window v-if="oneNewsWindow" :openOneNewsWindow="showOneNewsWindow"></one-news-window>
     </section>
 </template>
 
 <script>
 import NewsBlockItem from './NewsBlockItem.vue'
+import OneNewsWindow from '../mainApp/OneNewsWindow.vue'
 
 export default {
     props: ['openAllNewsWindow'],
     components: {
         'news-block-item': NewsBlockItem,
+        'one-news-window': OneNewsWindow
+    },    
+    data() {
+        return {            
+            oneNewsWindow: true    //окно одной новости
+        }
     },
     name: "NewsMainPage",
     methods: {
         openAllNewsWindow(){
             this.openAllNewsWindow(true);
+        },
+        showOneNewsWindow(value) {       // Показать/Скрыть окно с одной новостью
+            this.oneNewsWindow = value;
         }
     }
 }
