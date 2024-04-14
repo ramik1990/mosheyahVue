@@ -5,9 +5,11 @@
         <news-main-page :openAllNewsWindow="showAllNewsWindow"></news-main-page>
         <about-main-page></about-main-page>
         <contacts-main-page :openCallWindow="showCallWindow"></contacts-main-page>
-        <reviews-main-page></reviews-main-page>
+        <reviews-main-page :openAllReviewsWindow="showAllReviewsWindow"></reviews-main-page>
+        <!-- Окна диалоговые -->
         <call-window v-if="callWindow" :openCallWindow="showCallWindow"></call-window>
         <all-news-window v-if="allNewsWindow" :openAllNewsWindow="showAllNewsWindow"></all-news-window>
+        <all-reviews-window v-if="allReviewsWindow" :openAllReviewsWindow="showAllReviewsWindow"></all-reviews-window>
     </main>
     <foot></foot>
 </template>
@@ -22,6 +24,7 @@ import ReviewsMainPage from './mainApp/ReviewsMainPage.vue'
 import Footer from './mainApp/Footer.vue'
 import CallWindow from './mainApp/CallWindow.vue'
 import AllNewsWindow from './mainApp/AllNewsWindow.vue'
+import AllReviewsWindow from './mainApp/AllReviewsWindow.vue'
 
 export default {
     components: {
@@ -33,12 +36,14 @@ export default {
         'reviews-main-page': ReviewsMainPage,
         'foot':Footer,
         'call-window': CallWindow,
-        'all-news-window': AllNewsWindow
+        'all-news-window': AllNewsWindow,
+        'all-reviews-window': AllReviewsWindow
     },
     data() {
         return {
             callWindow: false,  // окно обратной связи
-            allNewsWindow: true    //окно всех новостей
+            allNewsWindow: false,    //окно всех новостей
+            allReviewsWindow: false    //окно всех отзывов
         }
     },
     methods: {
@@ -47,6 +52,9 @@ export default {
         },
         showAllNewsWindow(value) {       // Показать/Скрыть окно со всеми новостями
             this.allNewsWindow = value;
+        },
+        showAllReviewsWindow(value) {       // Показать/Скрыть окно со всеми отзывами
+            this.allReviewsWindow = value;
         }
     }
 }

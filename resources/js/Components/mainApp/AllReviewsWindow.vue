@@ -1,24 +1,24 @@
 <template>
-    <section class="all-news-window">
+    <section class="all-reviews-window">
         <div class="close-button"><span @click="closeWindow">&#10060;</span></div>
-        <h3 class="all-news-window-title">Новости</h3>
+        <h3 class="all-reviews-window-title">Отзывы</h3>
     </section>
 </template>
 
 <script>
 export default {
-    name: "AllNewsWindow",
-    props: ['openAllNewsWindow'],
+    name: "AllReviewsWindow",
+    props: ['openAllReviewsWindow'],
     methods: {
         closeWindow(){
-            this.openAllNewsWindow(false)
+            this.openAllReviewsWindow(false)
         }
     }
 }
 </script>
 
 <style scoped>
-.all-news-window {
+.all-reviews-window {
     max-width: 1440px;
     min-width: 567px;
     width: calc(100% - 40px);
@@ -32,9 +32,9 @@ export default {
     justify-content: start;
     align-items: center;
     flex-direction: column;
-    animation: openAllNewsAnimation .5s ease;
+    animation: openAllReviewsAnimation .5s ease;
 }
-.all-news-window-title {
+.all-reviews-window-title {
     position: relative;
     width: 100%;
     color: #3a3f58;
@@ -46,7 +46,7 @@ export default {
     text-transform: uppercase;
     text-align: center;
 }
-.all-news-window-title:after {
+.all-reviews-window-title:after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -68,7 +68,7 @@ export default {
     transform: scale(1.045);
 }
 
-@keyframes openAllNewsAnimation {
+@keyframes openAllReviewsAnimation {
     0% {
         top: -100%;
     }

@@ -6,7 +6,7 @@
             <reviews-block-item></reviews-block-item>
             <reviews-block-item></reviews-block-item>
         </div>
-        <a href='#' class="add-review-button">добавить отзыв</a>
+        <a href='#' class="add-review-button" @click.prevent="openAllReviewsWindow()">добавить отзыв</a>
     </section>
 </template>
 
@@ -14,10 +14,16 @@
 import ReviewsBlockItem from './ReviewsBlockItem.vue'
 
 export default {
+    name: "ReviewsMainPage",
+    props: ['openAllReviewsWindow'],
     components: {
         'reviews-block-item':ReviewsBlockItem
     },
-    name: "ReviewsMainPage"
+    methods: {
+        openAllReviewsWindow() {
+            this.openAllReviewsWindow(true);
+        }
+    }
 }
 </script>
 
