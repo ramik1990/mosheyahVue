@@ -24,7 +24,7 @@ export default {
     },    
     data() {
         return {            
-            oneNewsWindow: true    //окно одной новости
+            oneNewsWindow: false    //окно одной новости
         }
     },
     name: "NewsMainPage",
