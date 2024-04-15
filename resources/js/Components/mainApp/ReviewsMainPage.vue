@@ -2,9 +2,7 @@
     <section class="reviews" id="reviews">
         <h2 class="reviews-title">отзывы</h2>
         <div class="reviews-body">
-            <reviews-block-item></reviews-block-item>
-            <reviews-block-item></reviews-block-item>
-            <reviews-block-item></reviews-block-item>
+                <reviews-block-item v-for="value in allReviews" :value="value" :key="value.id"></reviews-block-item>
         </div>
         <a href='#' class="add-review-button" @click.prevent="openAllReviewsWindow()">добавить отзыв</a>
     </section>
@@ -12,6 +10,7 @@
 
 <script>
 import ReviewsBlockItem from './ReviewsBlockItem.vue'
+import axios from 'axios'
 
 export default {
     name: "ReviewsMainPage",
@@ -19,10 +18,20 @@ export default {
     components: {
         'reviews-block-item':ReviewsBlockItem
     },
+    data(){
+        return {
+            allReviews: ''      // Переменная получаемая три последние отзыва на главную страницу
+        }
+    },
     methods: {
         openAllReviewsWindow() {
             this.openAllReviewsWindow(true);
         }
+    },
+    created() {
+        axios.post('http://127.0.0.1:8000/reviewForMainPage').then(response => { //Запрос для получения три последних отзыва на главную страницу
+            this.allReviews = response.data;
+        })
     }
 }
 </script>

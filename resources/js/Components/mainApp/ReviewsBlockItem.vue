@@ -1,16 +1,18 @@
 <template>
     <div class="reviews-block">
-        <img src="../../../images/logos/male_avatar.png" alt="avatar" class="avatar">
-        <p class="reviews-block-name">Евгений</p>
+        <img src="../../../images/logos/male_avatar.png" alt="avatar" class="avatar" v-if="this.value.gender">
+        <img src="../../../images/logos/female_avatar.png" alt="avatar" class="avatar" v-if="!this.value.gender">
+        <p class="reviews-block-name">{{this.value.name}}</p>
         <p class="reviews-block-description">
-            Отличный магазин! Профессиональные консультации, широкий выбор систем пожаротушения, быстрая доставка. Надежные партнеры в обеспечении безопасности вашего бизнеса. Рекомендую!
+            {{ this.value.text }}            
         </p>
     </div>
 </template>
 
 <script>
 export default {
-    name: "ReviewsBlockItem"
+    name: "ReviewsBlockItem",
+    props: ['value']
 }
 </script>
 

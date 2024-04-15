@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+
+//====================Основные запросы==========================
+Route::get('/', ['App\Http\Controllers\Controller','getMainPage'])->name('mainPage');
+
+
+//====================ОТЗЫВЫ==========================
+Route::post('/reviewForMainPage', ['App\Http\Controllers\ReviewController','getReviewForMainPage'])->name('mainPage'); //запрос для получения отзывов на главную страницу
+
