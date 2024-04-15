@@ -29,7 +29,7 @@ export default {
         }
     },
     created() {
-        axios.post('http://127.0.0.1:8000/reviewForMainPage').then(response => { //Запрос для получения три последних отзыва на главную страницу
+        axios.post('/reviewForMainPage').then(response => { //Запрос для получения три последних отзыва на главную страницу
             this.allReviews = response.data;
         })
     }
