@@ -2,19 +2,18 @@
     <section class="news-main-page" id="news">
         <h2>новости</h2>
         <div class="news-block">
-            <news-block-item :openOneNewsWindow="showOneNewsWindow"></news-block-item>
-            <news-block-item :openOneNewsWindow="showOneNewsWindow"></news-block-item>
-            <news-block-item :openOneNewsWindow="showOneNewsWindow"></news-block-item>
+            <news-block-item :openOneNewsWindow="showOneNewsWindow" v-for="article in allArticles" :key="article.id" :article="article"></news-block-item>
         </div>
         <a href="#" class="all-news-button" @click.prevent="openAllNewsWindow()">все новости</a>
 
-        <one-news-window v-if="oneNewsWindow" :openOneNewsWindow="showOneNewsWindow"></one-news-window>
+        <one-news-window v-if="oneNewsWindow" :openOneNewsWindow="showOneNewsWindow" :article="moreArticle"></one-news-window>
     </section>
 </template>
 
 <script>
 import NewsBlockItem from './NewsBlockItem.vue'
 import OneNewsWindow from '../mainApp/OneNewsWindow.vue'
+import axios from 'axios'
 
 export default {
     props: ['openAllNewsWindow'],
@@ -24,7 +23,9 @@ export default {
     },    
     data() {
         return {            
-            oneNewsWindow: false    //окно одной новости
+            oneNewsWindow: false,    //окно одной новости
+            moreArticle: '',            //Одна новость нажатая на кнопку "читать"
+            allArticles: ''            //Все новости выведенные при загрузке страницы
         }
     },
     name: "NewsMainPage",
@@ -32,9 +33,16 @@ export default {
         openAllNewsWindow(){
             this.openAllNewsWindow(true);
         },
-        showOneNewsWindow(value) {       // Показать/Скрыть окно с одной новостью
+        showOneNewsWindow(value, value2) {       // Показать/Скрыть окно с одной новостью
             this.oneNewsWindow = value;
+            this.moreArticle = value2;
         }
+    },
+    created() {
+        axios.post('/articlesForMainPage').then(response => {
+            this.allArticles = response.data;
+            console.log(this.allArticles);
+        });
     }
 }
 </script>

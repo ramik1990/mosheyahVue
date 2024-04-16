@@ -1,14 +1,20 @@
 <template>
     <section class="one-news-window">
         <div class="close-button"><span @click="closeWindow">&#10060;</span></div>
-        <h3 class="one-news-window-title">Одна Новость</h3>
+        <h3 class="one-news-window-title">{{ this.article.title }}</h3>
+        <div class="window-body">
+            <img :src="this.article.urlimg" :alt="this.article.title" class="one-news-window-img">
+            <p class="one-news-window-body">
+                {{ this.article.text }}
+            </p>
+        </div>
     </section>
 </template>
 
 <script>
 
 export default {
-    props: ['openOneNewsWindow'],
+    props: ['openOneNewsWindow', 'article'],
     name: "OneNewsWindow",
     methods: {
         closeWindow(){
@@ -43,7 +49,7 @@ export default {
     width: 100%;
     color: #3a3f58;
     font-family: Inter;
-    font-size: 30px;
+    font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -70,6 +76,25 @@ export default {
 }
 .close-button span:hover {
     transform: scale(1.045);
+}
+.window-body {
+    margin-top: 80px;
+    min-height: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+}
+.one-news-window-body {
+    font-family: Inter;
+    font-size: 18px;
+    padding: 0 20px;
+}
+.one-news-window-img {
+    max-width: 449px;
+    max-height: 200px;
 }
 
 @keyframes openOneNewsAnimation {

@@ -1,12 +1,12 @@
 <template>
     <div class="News-block-Item">
-        <img src="https://images.satu.kz/141994070_w600_h300_141994070.jpg" alt="newsItemImg">
-        <p class="news-item-title">История АПТ</p>
+        <img :src="this.article.urlimg" alt="newsItemImg">
+        <p class="news-item-title">{{this.article.title}}</p>
         <div class="news-item-description">
-            История устройств пожаротушения ведется с 1863 года, когда Алансоном Крэйном (США) был изобретен первый огнетушитель, спустя почти 10 лет появилась система пожаротушения, которую в 1872 году запатентовал Пратт. И только в 1874 году в США наконец-то была сконструирована и установлена Генри Пармали в его мануфактуре по производству фортепиано первая полуавтоматическая система водного пожаротушения. Сегодня автоматические системы пожаротушения – это полный контроль и тушение пожаров в зданиях и сооружениях без участия человека. По сложности конструкционных решений их можно сгруппировать в инженерные системы пожаротушения, требующие тщательного проектирования, монтажа и пуско-наладочных работ, и в модульные установки пожаротушения, устанавливаемые в стандартные (типовые) промышленные, производственные, складские и жилые помещения.
+            {{ this.article.text }}            
         </div>
         <div class="news-item-footer">
-            <span class="news-item-date">22.01.2024</span>
+            <span class="news-item-date">{{ getDate(this.article.created_at) }}</span>
             <a href="#" class="news-item-button" @click.prevent="openOneNewsWindow">читать</a>
         </div>
     </div>
@@ -15,10 +15,21 @@
 <script>
 export default {
     name: "NewsBlockItem",
-    props: ['openOneNewsWindow'],
+    props: ['openOneNewsWindow', 'article'],
     methods: {
         openOneNewsWindow() {
-            this.openOneNewsWindow(true)
+            this.openOneNewsWindow(true, this.article)
+        },
+        getDate(dataString) {                       //Метод для форматирования получаемой даты в привычный вид
+            const date = new Date(dataString);
+            const day = date.getDate();
+            const month = date.getMonth() + 1; // Месяцы в JavaScript нумеруются с 0
+            const year = date.getFullYear();
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const seconds = date.getSeconds();
+
+            return `${day < 10 ? '0' + day : day}.${month < 10 ? '0' + month : month}.${year}`;
         }
     }
 }

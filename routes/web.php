@@ -19,5 +19,9 @@ Route::get('/', ['App\Http\Controllers\Controller','getMainPage'])->name('mainPa
 
 
 //====================ОТЗЫВЫ==========================
-Route::post('/reviewForMainPage', ['App\Http\Controllers\ReviewController','getReviewForMainPage'])->name('mainPage'); //запрос для получения отзывов на главную страницу
+Route::post('/reviewForMainPage', ['App\Http\Controllers\ReviewController','getReviewForMainPage'])->name('getReviewForMainPage'); //запрос для получения отзывов на главную страницу
+
+//====================НОВОСТИ==========================
+Route::post('/articlesForMainPage', ['App\Http\Controllers\ArticleController','getArticlesForMainPage'])->name('getArticlesForMainPage'); //запрос для получения новостей на главную страницу
+
 
