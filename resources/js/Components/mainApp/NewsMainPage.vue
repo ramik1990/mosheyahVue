@@ -4,34 +4,38 @@
         <div class="news-block">
             <news-block-item :openOneNewsWindow="showOneNewsWindow" v-for="article in allArticles" :key="article.id" :article="article"></news-block-item>
         </div>
-        <a href="#" class="all-news-button" @click.prevent="openAllNewsWindow()">все новости</a>
+        <a href="#" class="all-news-button" @click.prevent="showAllNewsWindow(true)">все новости</a>
 
+        <all-news-window v-if="allNewsWindow" :openAllNewsWindow="showAllNewsWindow" :articles="allArticles"></all-news-window>
         <one-news-window v-if="oneNewsWindow" :openOneNewsWindow="showOneNewsWindow" :article="moreArticle"></one-news-window>
     </section>
 </template>
 
 <script>
 import NewsBlockItem from './NewsBlockItem.vue'
-import OneNewsWindow from '../mainApp/OneNewsWindow.vue'
+import OneNewsWindow from './OneNewsWindow.vue'
+import AllNewsWindow from './AllNewsWindow.vue'
 import axios from 'axios'
 
 export default {
     props: ['openAllNewsWindow'],
     components: {
         'news-block-item': NewsBlockItem,
-        'one-news-window': OneNewsWindow
+        'one-news-window': OneNewsWindow,
+        'all-news-window': AllNewsWindow
     },    
     data() {
         return {            
             oneNewsWindow: false,    //окно одной новости
+            allNewsWindow: false,    //окно всех новостей
             moreArticle: '',            //Одна новость нажатая на кнопку "читать"
             allArticles: ''            //Все новости выведенные при загрузке страницы
         }
     },
     name: "NewsMainPage",
     methods: {
-        openAllNewsWindow(){
-            this.openAllNewsWindow(true);
+        showAllNewsWindow(value, value2){           // Показать/Скрыть окно со всеми новостями
+            this.allNewsWindow = value;
         },
         showOneNewsWindow(value, value2) {       // Показать/Скрыть окно с одной новостью
             this.oneNewsWindow = value;

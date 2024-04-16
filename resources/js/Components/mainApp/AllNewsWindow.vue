@@ -2,13 +2,14 @@
     <section class="all-news-window">
         <div class="close-button"><span @click="closeWindow">&#10060;</span></div>
         <h3 class="all-news-window-title">Новости</h3>
+        <p v-for="article in articles" :key="article.id">{{ article.title }}</p>
     </section>
 </template>
 
 <script>
 export default {
     name: "AllNewsWindow",
-    props: ['openAllNewsWindow'],
+    props: ['openAllNewsWindow', 'articles'],
     methods: {
         closeWindow(){
             this.openAllNewsWindow(false)
@@ -35,6 +36,7 @@ export default {
     animation: openAllNewsAnimation .5s ease;
     border: 1px solid #ee6a59;
     box-shadow: 0 2px 4px #ee6a59cc;
+    z-index: 999;
 }
 .all-news-window-title {
     position: relative;
