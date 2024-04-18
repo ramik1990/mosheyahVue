@@ -11,4 +11,9 @@ class ArticleController extends Controller
         $articles = Article::latest()->take(3)->get(); 
         return response()->json($articles);
     }
+
+    public function getAllArticles(Request $request) { // Получить вообще все новости из базы данных
+        $articles = Article::all();
+        return response()->json($articles);
+    }
 }

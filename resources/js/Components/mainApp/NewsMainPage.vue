@@ -6,7 +6,7 @@
         </div>
         <a href="#" class="all-news-button" @click.prevent="showAllNewsWindow(true)">все новости</a>
 
-        <all-news-window v-if="allNewsWindow" :openAllNewsWindow="showAllNewsWindow" :articles="allArticles"></all-news-window>
+        <all-news-window v-if="allNewsWindow" :openOneNewsWindow="showOneNewsWindow" :openAllNewsWindow="showAllNewsWindow" :articles="allArticles"></all-news-window>
         <one-news-window v-if="oneNewsWindow" :openOneNewsWindow="showOneNewsWindow" :article="moreArticle"></one-news-window>
     </section>
 </template>
@@ -45,7 +45,6 @@ export default {
     created() {
         axios.post('/articlesForMainPage').then(response => {
             this.allArticles = response.data;
-            console.log(this.allArticles);
         });
     }
 }

@@ -23,5 +23,6 @@ Route::post('/reviewForMainPage', ['App\Http\Controllers\ReviewController','getR
 
 //====================НОВОСТИ==========================
 Route::post('/articlesForMainPage', ['App\Http\Controllers\ArticleController','getArticlesForMainPage'])->name('getArticlesForMainPage'); //запрос для получения новостей на главную страницу
+Route::post('/getAllArticles', ['App\Http\Controllers\ArticleController','getAllArticles'])->name('getAllArticles'); //запрос для получения всех новостей
 
 
